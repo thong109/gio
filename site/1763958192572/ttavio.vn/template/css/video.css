@@ -1,0 +1,599 @@
+.box-video-center {
+  width: 16.22rem;
+  height: 8.46rem;
+  position: relative;
+  display: block;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.pic-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition: opacity .5s ease-in-out;
+  visibility: hidden;
+  z-index: 2
+}
+
+.pic-video.hide {
+  opacity: 0;
+  pointer-events: none
+}
+
+.video-cover {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden
+}
+
+.video-full {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreen .video-full {
+  width: 100%;
+  height: 100%
+}
+
+.box-video-center.show .pic-video {
+  visibility: visible
+}
+
+.youtube-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0
+}
+
+.youtube-video iframe {
+  width: 100%;
+  height: calc(100vw * .5625);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  pointer-events: none;
+  transform: translateY(-50%);
+  z-index: -1
+}
+
+.full-frame .youtube-video iframe {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform: none
+}
+
+.controls {
+  position: absolute;
+  width: 50vw;
+  height: auto;
+  padding: 0.05rem 0.1rem;
+  bottom: 0.1rem;
+  left: calc(50% - 25vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity .5s ease-in-out;
+  z-index: 10
+}
+
+.controls.hide {
+  opacity: 0
+}
+
+.controls.hide>* {
+  pointer-events: none
+}
+
+.right-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.2rem;
+  min-width: 40px;
+  height: auto
+}
+
+.left-button button,
+.right-button button {
+  position: relative;
+  width: 0.15rem;
+  height: 0.15rem;
+  min-width: 30px;
+  min-height: 30px;
+  margin: 0 .03rem;
+  display: block;
+  background-color: transparent;
+  cursor: pointer
+}
+
+.left-button svg,
+.right-button svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block
+}
+
+.left-button path,
+.right-button path {
+  fill: var(--color-white);
+  stroke: none;
+  transition: fill .3s ease-in-out
+}
+
+.left-button g,
+.right-button g {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block
+}
+
+.left-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: auto
+}
+
+.video-time {
+  position: relative;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.12rem;
+  font-weight: 400;
+  margin: 0 .03rem;
+  flex: 0 0 auto;
+}
+
+.video-time span,
+.video-time time {
+  color: var(--color-white);
+  display: block;
+  margin: 0 .03rem
+}
+
+.video-progress {
+  position: relative;
+  width: calc(100% - 220px);
+  height: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.progressbar {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 1px;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  background: var(--color-white-alpha);
+  border: none
+}
+
+.seek {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  top: 0;
+  margin: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none
+}
+
+.seek:focus {
+  outline: 0
+}
+
+.fullscreen .home-video {
+  z-index: 9999 !important
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  margin: -10px 0 0 0;
+  background: var(--color-white);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  transition: background .3s ease-in-out
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1px;
+  border-radius: 0;
+  background: 0 0;
+  -webkit-appearance: none
+}
+
+input[type=range]::-webkit-slider-runnable-track:focus {
+  background: var(--color-white);
+  outline: 0
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  background: var(--color-highlight)
+}
+
+progress::-webkit-progress-bar {
+  background: var(--color-white)
+}
+
+progress::-webkit-progress-value {
+  background: var(--color-highlight)
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  background: var(--color-white);
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  transition: background .3s ease-in-out
+}
+
+input[type=range]::-moz-focusring {
+  background: var(--color-white);
+  outline: 0
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 1px;
+  border-radius: 0;
+  background: var(--color-highlight);
+  appearance: none
+}
+
+input[type=range]::-moz-range-track:focus {
+  background: var(--color-highlight);
+  outline: 0
+}
+
+input[type=range]::-moz-range-thumb:active {
+  background: var(--color-highlight)
+}
+
+::-moz-progress-bar {
+  background: var(--color-highlight)
+}
+
+.is-Firefox .progressbar {
+  height: 2px
+}
+
+.player-vid {
+  position: absolute;
+  top: calc(50%);
+  left: calc(50%);
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  cursor: pointer;
+  z-index: 999
+}
+
+.player-vid svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  pointer-events: none;
+  transform-origin: center center;
+  z-index: 1
+}
+
+.button-deco {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  border-radius: 50%;
+  overflow: hidden
+}
+
+.button-deco-filler {
+  position: absolute;
+  width: 150%;
+  height: 200%;
+  border-radius: 50%;
+  top: -50%;
+  left: -25%;
+  transform: translate3d(0, 75%, 0);
+  background-color: var(--color-normal-light)
+}
+
+.button-deco-filler::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background: url(../images/bg-button.svg) no-repeat center center/cover
+}
+
+.player-vid.hide {
+  opacity: 0;
+  pointer-events: none
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-position: center center;
+  transition: opacity .6s ease-in-out;
+  z-index: 15
+}
+
+.bg-video::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--color-black-alpha-03);
+  mix-blend-mode: multiply
+}
+
+.bg-video img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none
+}
+
+.bg-video.hide {
+  opacity: 0;
+  pointer-events: none
+}
+
+.pause-button,
+.play-button {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden
+}
+
+.playpause {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  display: none;
+  z-index: 999999
+}
+
+.ytp-pause-overlay,
+.ytp-pause-overlay-controls-hidden .ytp-pause-overlay {
+  display: none !important
+}
+
+@media (hover:hover) and (pointer:fine) {
+
+  .left-button button:hover path,
+  .right-button button:hover path {
+    fill: var(--color-highlight)
+  }
+
+  input[type=range]::-webkit-slider-thumb:hover {
+    background-color: var(--color-highlight)
+  }
+
+  input[type=range]::-moz-range-thumb:hover {
+    background-color: var(--color-highlight)
+  }
+}
+
+@media screen and (max-width:1100px) {
+  .youtube-video {
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    transform: none
+  }
+
+  .full-frame .video-full,
+  .video-full {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    transform: none;
+    display: block;
+    z-index: 1
+  }
+
+  .video-cover {
+    height: auto;
+    width: 100%
+  }
+
+  .box-video-center {
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: auto;
+    top: auto
+  }
+
+  .video-youtube-full {
+    height: auto
+  }
+
+  .control {
+    font-size: 11px;
+    padding: 10px;
+    bottom: 0;
+    opacity: 1
+  }
+
+  .control button {
+    width: 20px;
+    height: 20px;
+    transition: none;
+    pointer-events: auto
+  }
+
+  .control button:hover {
+    opacity: 1
+  }
+
+  .control::after {
+    transition: none;
+    background-color: var(--color-black-alpha-05)
+  }
+
+  .youtube-video iframe {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    z-index: 1
+  }
+
+  .home-video.fullmode {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--color-black);
+    overflow: hidden !important;
+    z-index: 9999 !important
+  }
+
+  .fullmode .video-cover {
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999
+  }
+
+  .fullmode .video-youtube-full {
+    height: 100%
+  }
+
+  .fullmode .youtube-video iframe {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute
+  }
+
+  .player-vid {
+    width: 100px;
+    height: 100px;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    opacity: 1;
+    transform: none !important
+  }
+
+  .button-deco-filler {
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    transform: none
+  }
+
+  .is-IOS .youtube-video iframe,
+  .is-mobile .youtube-video iframe {
+    z-index: 1
+  }
+
+  .is-iOS .control,
+  .is-iOS .controls,
+  .is-mobile .control,
+  .is-mobile .controls {
+    display: none;
+    z-index: -9999
+  }
+
+  .youtube-video+.player-vid {
+    opacity: 0;
+    pointer-events: none
+  }
+}
+
+@media screen and (max-width:580px) {
+  .player-vid {
+    width: 80px;
+    height: 80px;
+    top: calc(50% - 35px);
+    left: calc(50% - 35px)
+  }
+}
