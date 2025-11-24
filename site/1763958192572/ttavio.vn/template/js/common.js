@@ -7107,7 +7107,6 @@ function textBreak() {
     });
 }
 CheckIMG();
-textBreak();
 const onPlay = function () {
   var e = document.querySelectorAll(".map-img"),
     t = new IntersectionObserver(
@@ -9008,7 +9007,14 @@ if (scrollStay) {
     
     removeActive(allClass),
     removeActive(groupCentral),
-    groupCentral[groupIndex].classList.add("show-text");
+    groupCentral[groupIndex].classList.add("show-text"),
+    boxLi[groupIndex].classList.add("current");
+    
+    if ("about-page" == IDPage || "location-page" == IDPage || "facilities-page" == IDPage || "masterplan-page" == IDPage || "library-page" == IDPage) {
+        document.querySelector(".group-central.show-text").dataset.name;
+        changeUrl(boxLi[groupIndex].querySelector("button").dataset.href, boxLi[groupIndex].querySelector("button").dataset.title, boxLi[groupIndex].querySelector("button").dataset.description, boxLi[groupIndex].querySelector("button").dataset.keyword, boxLi[groupIndex].querySelector("button").dataset.name),
+        changeAlternate(boxLi[groupIndex].querySelector("button").dataset.href, boxLi[groupIndex].querySelector("button"), 1)
+    }
     
     if (groupCentral[groupIndex].classList.contains("show-text")) {
         var e = groupCentral[groupIndex].querySelector(".hover-svg")
