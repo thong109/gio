@@ -26,28 +26,9 @@
 </head>
 
 <body class="showed">
-  <!-- <script>
-      var loadDeferredStyles = function () {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.getElementById("render-styles");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement);
-        addStylesNode.parentElement.removeChild(addStylesNode);
-      };
-      var raf =
-        requestAnimationFrame ||
-        mozRequestAnimationFrame ||
-        webkitRequestAnimationFrame ||
-        msRequestAnimationFrame;
-      if (raf)
-        raf(function () {
-          window.setTimeout(loadDeferredStyles, 0);
-        });
-      else window.addEventListener("load", loadDeferredStyles);
-    </script> -->
-  <header class="header hidden">
+  <header class="header">
     <div class="logo"></div>
-    <div class="left-header">
+    <div class="left-header hidden">
       <button class="subscribe" data-page="register-page" aria-label="Đăng ký tư vấn">
         <div class="icon">
           <svg viewBox="0 0 50 50">
@@ -89,60 +70,34 @@ c-1.2,0.6-4.2,1.4-3.3,3.4l0,0c1.6,4.1,13.1,18.2,15.4,8.7C39.9,30.3,38.5,30.7,38.
       </a>
     </div>
     <div class="right-header white">
-      <a class="link-home link-load current" href="https://ttavio.vn" data-name="home-page" aria-label="home">
-        <div class="icon">
-          <svg viewBox="0 0 50 50">
-            <path class="normal" fill="currentColor" d="M40.4,6.7l-1.5,6.1l-5.3,1v21.6h-6.1V13.9h-5.6v21.6h-6.1V13.9l-5.3-1L9.6,9.2L9,6.7c4.3,0.7,9.3,1.2,15,1.2
-C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-18v4h18V39.3z"></path>
-            <path class="hover" fill="currentColor" d="M40.4,6.7l-1.5,6.1l-5.3,1v21.6h-6.1V13.9h-5.6v21.6h-6.1V13.9l-5.3-1L9.6,9.2L9,6.7c4.3,0.7,9.3,1.2,15,1.2
-C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-18v4h18V39.3z"></path>
-          </svg>
-        </div>
-      </a>
-      <a class="v360 link-load" href="https://ttavio.vn/thu-vien/can-ho-360.html" aria-label="view-360">
-        <div class="effect-text">
-          <div class="inner">
-            <span class="normal">360°</span><span class="hover">360°</span>
-          </div>
-        </div>
-        <div class="icon">
-          <svg viewBox="0 0 40 40">
-            <path class="normal" fill="currentColor"
-              d="M17.97,6.43l1.4,0.12V9.8L7.74,14.34c0,0.12,0,14.19,0,14.19l-3.26,1.51l-0.58-1.4c0,0-2.67,3.61-2.67,3.72c0,0.12,4.54,0.47,4.54,0.47l-0.58-1.4l2.79-1.4l12.21,6.16l12.21-6.05l2.09,0.93l-0.47,1.4c0,0.12,4.54-0.35,4.54-0.47l-2.67-3.61l-0.7,1.4l-2.44-1.05V14.45L20.99,9.68V6.66l1.51-0.12c0,0-2.09-3.84-2.33-3.95C20.18,2.59,17.97,6.43,17.97,6.43z M29.95,15.03c-0.12,0.12-8.84,3.72-8.84,3.72c-0.12,0-0.12-7.44,0-7.33C21.11,11.43,30.07,15.03,29.95,15.03z M19.48,18.76L19.48,18.76c-0.58-0.23-8.72-3.84-8.84-3.84c-0.12,0,8.72-3.61,8.72-3.61C19.48,11.43,19.48,18.76,19.48,18.76z M31.11,27.94l-10.12-4.65v-2.91l10.12-4.3C31.23,16.2,31.23,27.94,31.11,27.94z M30.41,29.34c0.12,0.12-9.54,4.77-9.54,4.77s0-9.19,0.12-9.19C21.11,25.04,30.3,29.34,30.41,29.34z">
-            </path>
-            <path class="hover" fill="currentColor"
-              d="M17.97,6.43l1.4,0.12V9.8L7.74,14.34c0,0.12,0,14.19,0,14.19l-3.26,1.51l-0.58-1.4c0,0-2.67,3.61-2.67,3.72c0,0.12,4.54,0.47,4.54,0.47l-0.58-1.4l2.79-1.4l12.21,6.16l12.21-6.05l2.09,0.93l-0.47,1.4c0,0.12,4.54-0.35,4.54-0.47l-2.67-3.61l-0.7,1.4l-2.44-1.05V14.45L20.99,9.68V6.66l1.51-0.12c0,0-2.09-3.84-2.33-3.95C20.18,2.59,17.97,6.43,17.97,6.43z M29.95,15.03c-0.12,0.12-8.84,3.72-8.84,3.72c-0.12,0-0.12-7.44,0-7.33C21.11,11.43,30.07,15.03,29.95,15.03z M19.48,18.76L19.48,18.76c-0.58-0.23-8.72-3.84-8.84-3.84c-0.12,0,8.72-3.61,8.72-3.61C19.48,11.43,19.48,18.76,19.48,18.76z M31.11,27.94l-10.12-4.65v-2.91l10.12-4.3C31.23,16.2,31.23,27.94,31.11,27.94z M30.41,29.34c0.12,0.12-9.54,4.77-9.54,4.77s0-9.19,0.12-9.19C21.11,25.04,30.3,29.34,30.41,29.34z">
-            </path>
-          </svg>
-        </div>
-      </a>
       <div class="language">
         <ul>
-          <li class="">
-            <a class="effect-text" href="https://ttavio.vn" data-lang="vi" aria-label="vi"
-              onclick="window.location = 'https://ttavio.vn';">
+          <li class="active">
+            <a class="effect-text" href="" data-lang="vi" aria-label="vi">
               <div class="inner">
-                <span class="normal">VI</span><span class="hover">VI</span>
+                <span class="hover">VI</span>
               </div>
             </a>
           </li>
-          <li class="active">
-            <a class="effect-text" href="https://ttavio.vn/en" data-lang="en" aria-label="en"
-              onclick="window.location = 'https://ttavio.vn/en';">
+          <li class="">
+            <a class="effect-text" href="/en" data-lang="en" aria-label="en">
               <div class="inner">
-                <span class="normal">EN</span><span class="hover">EN</span>
+                <span class="hover">EN</span>
               </div>
             </a>
           </li>
         </ul>
       </div>
       <div class="nav-click">
-        <svg class="line-svg" viewBox="0 0 150 100">
-          <rect class="one" x="0" y="21" width="150" height="4"></rect>
-          <rect class="two" x="0" y="47" width="120" height="4"></rect>
-          <rect class="three" x="0" y="72" width="150" height="4"></rect>
-        </svg>
-        <div class="nav-text"><span>Close</span></div>
+        <div class="nav-text">
+          <span class="is-close">Close</span>
+          <span class="is-menu">Menu</span>
+        </div>
+        <div class="nav-line-button">
+          <span class="nav-line"></span>
+          <span class="nav-line"></span>
+          <span class="nav-line"></span>
+        </div>
       </div>
     </div>
     <nav class="navigation layout-move">
@@ -159,17 +114,7 @@ C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-1
               data-keyword="TT AVIO">
               <div class="effect-text">
                 <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 8"><span class="word"
-                      data-word="Trang" style="--word-index: 0"><span class="char" data-char="T"
-                        style="--char-index: 0">T</span><span class="char" data-char="r"
-                        style="--char-index: 1">r</span><span class="char" data-char="a"
-                        style="--char-index: 2">a</span><span class="char" data-char="n"
-                        style="--char-index: 3">n</span><span class="char" data-char="g"
-                        style="--char-index: 4">g</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="chủ" style="--word-index: 1"><span class="char" data-char="c"
-                        style="--char-index: 5">c</span><span class="char" data-char="h"
-                        style="--char-index: 6">h</span><span class="char" data-char="ủ"
-                        style="--char-index: 7">ủ</span></span></span><span class="hover">Trang chủ</span>
+                  <span class="hover">Trang chủ</span>
                 </div>
               </div>
             </a>
@@ -181,18 +126,7 @@ C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-1
               data-keyword="">
               <div class="effect-text">
                 <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 9"><span class="word"
-                      data-word="Giới" style="--word-index: 0"><span class="char" data-char="G"
-                        style="--char-index: 0">G</span><span class="char" data-char="i"
-                        style="--char-index: 1">i</span><span class="char" data-char="ớ"
-                        style="--char-index: 2">ớ</span><span class="char" data-char="i"
-                        style="--char-index: 3">i</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="thiệu" style="--word-index: 1"><span class="char" data-char="t"
-                        style="--char-index: 4">t</span><span class="char" data-char="h"
-                        style="--char-index: 5">h</span><span class="char" data-char="i"
-                        style="--char-index: 6">i</span><span class="char" data-char="ệ"
-                        style="--char-index: 7">ệ</span><span class="char" data-char="u"
-                        style="--char-index: 8">u</span></span></span><span class="hover">Giới thiệu</span>
+                  <span class="hover">Giới thiệu</span>
                 </div>
               </div>
             </a>
@@ -203,14 +137,7 @@ C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-1
               data-title="Vị Trí - Dự Án TT AVIO By TT Capital" data-description="Vị trí" data-keyword="">
               <div class="effect-text">
                 <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 5"><span class="word"
-                      data-word="Vị" style="--word-index: 0"><span class="char" data-char="V"
-                        style="--char-index: 0">V</span><span class="char" data-char="ị"
-                        style="--char-index: 1">ị</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="trí" style="--word-index: 1"><span class="char" data-char="t"
-                        style="--char-index: 2">t</span><span class="char" data-char="r"
-                        style="--char-index: 3">r</span><span class="char" data-char="í"
-                        style="--char-index: 4">í</span></span></span><span class="hover">Vị trí</span>
+                  <span class="hover">Vị trí</span>
                 </div>
               </div>
             </a>
@@ -218,79 +145,32 @@ C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-1
           <li>
             <a class="nav-item link-load" href="https://ttavio.vn/tien-ich.html" data-name="facilities-page"
               data-hrefen="https://ttavio.vn/facilities.html" data-hrefvi="https://ttavio.vn/tien-ich.html"
-              data-title="Tiện Ích Nội Khu Của Dự Án TT AVIO By TT Capital" data-description="Tiện ích" data-keyword="">
+              data-title="phân khu" data-description="phân khu" data-keyword="">
               <div class="effect-text">
                 <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 7"><span class="word"
-                      data-word="Tiện" style="--word-index: 0"><span class="char" data-char="T"
-                        style="--char-index: 0">T</span><span class="char" data-char="i"
-                        style="--char-index: 1">i</span><span class="char" data-char="ệ"
-                        style="--char-index: 2">ệ</span><span class="char" data-char="n"
-                        style="--char-index: 3">n</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="ích" style="--word-index: 1"><span class="char" data-char="í"
-                        style="--char-index: 4">í</span><span class="char" data-char="c"
-                        style="--char-index: 5">c</span><span class="char" data-char="h"
-                        style="--char-index: 6">h</span></span></span><span class="hover">Tiện ích</span>
+                  <span class="hover">phân khu</span>
                 </div>
               </div>
             </a>
           </li>
-          <li class="has-sub">
-            <button class="nav-item" data-show="01" data-name="masterplan-page">
-              <div class="effect-text">
-                <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 7"><span class="word"
-                      data-word="Mặt" style="--word-index: 0"><span class="char" data-char="M"
-                        style="--char-index: 0">M</span><span class="char" data-char="ặ"
-                        style="--char-index: 1">ặ</span><span class="char" data-char="t"
-                        style="--char-index: 2">t</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="bằng" style="--word-index: 1"><span class="char" data-char="b"
-                        style="--char-index: 3">b</span><span class="char" data-char="ằ"
-                        style="--char-index: 4">ằ</span><span class="char" data-char="n"
-                        style="--char-index: 5">n</span><span class="char" data-char="g"
-                        style="--char-index: 6">g</span></span></span><span class="hover">Mặt bằng</span>
-                </div>
-              </div>
-              <div class="nav-drop"></div>
-            </button>
-            <div class="sub-menu-drop off" data-show="01" style="--data-height: 75px">
-              <div class="item-menu-second">
-                <a class="effect-text link-load" href="https://ttavio.vn/mat-bang.html" data-name="masterplan-01"
-                  data-hrefvi="https://ttavio.vn/mat-bang.html" data-hrefen="https://ttavio.vn/masterplan-1.html"
-                  data-title="Mặt Bằng Tổng Thể Tháp AVIS Dự Án TT AVIO" data-description="THÁP AVIS" data-keyword="">
-                  <div class="inner">
-                    <span class="normal">Mặt bằng THÁP AVIS</span><span class="hover">Mặt bằng THÁP AVIS</span>
-                  </div>
-                </a>
-              </div>
-              <div class="item-menu-second">
-                <a class="effect-text link-load" href="https://ttavio.vn/mat-bang-thap-orion.html"
-                  data-name="masterplan-02" data-hrefvi="https://ttavio.vn/mat-bang-thap-orion.html"
-                  data-hrefen="https://ttavio.vn/masterplan-orion-tower.html"
-                  data-title="Mặt Bằng Tổng Thể Tháp ORION Của Dự Án TT AVIO" data-description="THÁP ORION"
-                  data-keyword="">
-                  <div class="inner">
-                    <span class="normal">Mặt bằng THÁP ORION</span><span class="hover">Mặt bằng THÁP ORION</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </li>
           <li>
             <a class="nav-item link-load" href="https://ttavio.vn/tin-tuc.html" data-name="news-page"
               data-hrefen="https://ttavio.vn/news.html" data-hrefvi="https://ttavio.vn/tin-tuc.html"
-              data-title="Tin tức" data-description="Tin tức" data-keyword="">
+              data-title="Sản phẩm" data-description="Sản phẩm" data-keyword="">
               <div class="effect-text">
                 <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 6"><span class="word"
-                      data-word="Tin" style="--word-index: 0"><span class="char" data-char="T"
-                        style="--char-index: 0">T</span><span class="char" data-char="i"
-                        style="--char-index: 1">i</span><span class="char" data-char="n"
-                        style="--char-index: 2">n</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="tức" style="--word-index: 1"><span class="char" data-char="t"
-                        style="--char-index: 3">t</span><span class="char" data-char="ứ"
-                        style="--char-index: 4">ứ</span><span class="char" data-char="c"
-                        style="--char-index: 5">c</span></span></span><span class="hover">Tin tức</span>
+                  <span class="hover">Sản phẩm</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item link-load" href="https://ttavio.vn/thu-vien.html" data-name="library-page"
+              data-hrefen="https://ttavio.vn/library.html" data-hrefvi="https://ttavio.vn/thu-vien.html"
+              data-title="Tiện ích" data-description="Tiện ích" data-keyword="">
+              <div class="effect-text">
+                <div class="inner">
+                  <span class="hover">Tiện ích</span>
                 </div>
               </div>
             </a>
@@ -301,16 +181,7 @@ C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-1
               data-title="Thư viện" data-description="Thư viện" data-keyword="">
               <div class="effect-text">
                 <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 7"><span class="word"
-                      data-word="Thư" style="--word-index: 0"><span class="char" data-char="T"
-                        style="--char-index: 0">T</span><span class="char" data-char="h"
-                        style="--char-index: 1">h</span><span class="char" data-char="ư"
-                        style="--char-index: 2">ư</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="viện" style="--word-index: 1"><span class="char" data-char="v"
-                        style="--char-index: 3">v</span><span class="char" data-char="i"
-                        style="--char-index: 4">i</span><span class="char" data-char="ệ"
-                        style="--char-index: 5">ệ</span><span class="char" data-char="n"
-                        style="--char-index: 6">n</span></span></span><span class="hover">Thư viện</span>
+                  <span class="hover">Thư viện</span>
                 </div>
               </div>
             </a>
@@ -318,18 +189,10 @@ C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-1
           <li>
             <a class="nav-item link-load" href="https://ttavio.vn/tien-do.html" data-name="progress-page"
               data-hrefen="https://ttavio.vn/progress.html" data-hrefvi="https://ttavio.vn/tien-do.html"
-              data-title="Tiến độ" data-description="Tiến độ" data-keyword="">
+              data-title="Tin tức" data-description="Tin tức" data-keyword="">
               <div class="effect-text">
                 <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 6"><span class="word"
-                      data-word="Tiến" style="--word-index: 0"><span class="char" data-char="T"
-                        style="--char-index: 0">T</span><span class="char" data-char="i"
-                        style="--char-index: 1">i</span><span class="char" data-char="ế"
-                        style="--char-index: 2">ế</span><span class="char" data-char="n"
-                        style="--char-index: 3">n</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="độ" style="--word-index: 1"><span class="char" data-char="đ"
-                        style="--char-index: 4">đ</span><span class="char" data-char="ộ"
-                        style="--char-index: 5">ộ</span></span></span><span class="hover">Tiến độ</span>
+                  <span class="hover">Tin tức</span>
                 </div>
               </div>
             </a>
@@ -340,15 +203,7 @@ C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-1
               data-title="Liên hệ" data-description="Liên hệ" data-keyword="">
               <div class="effect-text">
                 <div class="inner">
-                  <span class="normal words chars splitting" style="--word-total: 2; --char-total: 6"><span class="word"
-                      data-word="Liên" style="--word-index: 0"><span class="char" data-char="L"
-                        style="--char-index: 0">L</span><span class="char" data-char="i"
-                        style="--char-index: 1">i</span><span class="char" data-char="ê"
-                        style="--char-index: 2">ê</span><span class="char" data-char="n"
-                        style="--char-index: 3">n</span></span><span class="whitespace"> </span><span class="word"
-                      data-word="hệ" style="--word-index: 1"><span class="char" data-char="h"
-                        style="--char-index: 4">h</span><span class="char" data-char="ệ"
-                        style="--char-index: 5">ệ</span></span></span><span class="hover">Liên hệ</span>
+                  <span class="hover">Liên hệ</span>
                 </div>
               </div>
             </a>
@@ -571,9 +426,9 @@ C30,7.9,35.9,7.4,40.4,6.7z M12.8,34h-8v4h8V34z M45.2,34h-8v4h8V34z M33.8,39.3h-1
       </section>
       <section class="group-central home-lifestyle section-top-plan" data-name="home-lifestyle">
         <div class="wrapper">
-            <div class="text-break">
-              <h2 class="title-common-primary">Mặt bằng tổng thể</h2>
-            </div>
+          <div class="text-break">
+            <h2 class="title-common-primary">Mặt bằng tổng thể</h2>
+          </div>
         </div>
       </section>
       <!-- <section
