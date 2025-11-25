@@ -258,6 +258,7 @@ function NavClick() {
           ? ((Nav.scrollTop = 0),
             Header.classList.remove("active"),
             Navigation.classList.remove("show", "enable"),
+            kvSliders.forEach(swiper => swiper.autoplay.start()),
             WinScroll.start(),
             gsap.to(Navigation, {
               duration: 0.5,
@@ -294,6 +295,7 @@ function NavClick() {
             navClick.classList.add("active"),
             Header.classList.add("active"),
             overlayMenu.classList.add("show"),
+            kvSliders.forEach(swiper => swiper.autoplay.stop()),
             WinScroll.stop(),
             scrollStay &&
               groupCentral[groupIndex].classList.contains(
@@ -336,46 +338,39 @@ function NavClick() {
           o.classList.add("active"));
     }
   }
-  Subscrible.addEventListener("click", function (e) {
-    e.preventDefault(),
-      e.stopPropagation(),
-      navClick.classList.contains("active") && navClick.click(),
-      document.querySelector(".house-detail") && closeApart.click();
-    var t = this.dataset.page;
-    if (Mobile.matches || !scrollStay) {
-      var o = document.querySelector(
-        ".group-central[data-name='" + t + "']"
-      ).offsetTop;
-      gsap.to("html", { duration: 1, scrollTop: o, ease: "none" });
-    } else document.querySelector(".box-nav .click[data-page='" + t + "']").click();
-  }),
-    window.addEventListener("keydown", function (e) {
-      27 == (e.keyCode || e.which) &&
-        (e.preventDefault(),
-        navClick.classList.contains("active") && navClick.click());
-    });
+  window.addEventListener("keydown", function (e) {
+    27 == (e.keyCode || e.which) &&
+      (e.preventDefault(),
+      navClick.classList.contains("active") && navClick.click());
+  });
 }
+
+let kvSliders = [];
 
 function slideKeyvisual() {
   const sliders = document.querySelectorAll(".js-slider-keyvisual");
   if (!sliders.length) return;
 
   sliders.forEach((element) => {
-    new Swiper(element, {
+    const swiper = new Swiper(element, {
       loop: true,
       speed: 1500,
       slidesPerView: 1,
       autoplay: {
         delay: 5000,
         pauseOnMouseEnter: false,
+        disableOnInteraction: false,
       },
       pagination: {
         el: element.querySelector(".swiper-pagination"),
         clickable: true,
       },
     });
+
+    kvSliders.push(swiper);
   });
 }
+
 function LoadProgress(e) {
   var t = window.XMLHttpRequest
     ? new XMLHttpRequest()
@@ -1114,94 +1109,48 @@ function ContentLoad() {
     });
   }
 }
-houseText.forEach(function (e) {
-  e.addEventListener("click", function (e) {
-    if (
-      (e.preventDefault(), e.stopPropagation(), this.querySelector(".go-link"))
-    ) {
-      for (var t = 0; t < blockArea.length; t++)
+blockArea.forEach(function (e) {
+  addMultipleEvents(["mouseenter", "click"], e, function (e) {
+    if ((e.stopPropagation(), !Mobile.matches)) {
+      for (var t = 0; t < houseText.length; t++)
+        houseText[t].classList.remove("showup"),
+          (houseText[t].style.left = "0"),
+          (houseText[t].style.top = "0");
+      for (t = 0; t < blockArea.length; t++)
         blockArea[t].classList.remove("show");
-      for (t = 0; t < houseText.length; t++)
-        houseText[t].classList.remove("show", "current");
-      this.classList.add("current"), this.parentNode.classList.add("on-slide");
-      var o = this.querySelector(".go-link").href + "?isajax=1",
-        a = this.parentNode.dataset.text,
-        n = this.parentNode.dataset.floor,
-        r = this.parentNode.dataset.key,
-        s = this.querySelector(".num-block p").textContent,
-        c = this.parentNode.parentNode.dataset.class,
-        i = this.dataset.num,
-        l = this.querySelector(".num-block span").className;
-      WinScroll.stop(),
-        loadApartment.classList.add("display-block"),
-        Header.classList.add("light"),
-        Loadx.classList.contains("display-block") ||
-          Loadx.classList.add("display-block"),
-        addURL(
-          this.querySelector(".go-link"),
-          this.querySelector(".go-link").dataset.name
-        ),
-        changeAlternate(
-          this.querySelector(".go-link").href,
-          this.querySelector(".link-change-url"),
-          1
-        ),
-        gsap.to(loadApartment, {
-          duration: 0.3,
-          ease: "none",
-          opacity: 1,
-          onComplete: function () {
-            ApartmentLoad(o, a, n, r, s, i, c, l);
-          },
-        });
-    } else this.classList.remove("showup");
-    return !1;
-  });
-}),
-  blockArea.forEach(function (e) {
-    addMultipleEvents(["mouseenter", "click"], e, function (e) {
-      if ((e.stopPropagation(), !Mobile.matches)) {
-        for (var t = 0; t < houseText.length; t++)
-          houseText[t].classList.remove("showup"),
-            (houseText[t].style.left = "0"),
-            (houseText[t].style.top = "0");
-        for (t = 0; t < blockArea.length; t++)
-          blockArea[t].classList.remove("show");
-        this.classList.add("show");
-        var o = this.dataset.name,
-          a = document.querySelector('.house-text[data-num="' + o + '"]'),
-          n = e.clientX,
-          r = e.clientY,
-          s = a.offsetWidth,
-          c = a.offsetHeight;
-        a &&
-          (Touch
-            ? ((a.style.left = n - s / 2 + "px"),
-              (a.style.top = r - (c + 60) + "px"))
-            : ((a.style.left = n + 60 + "px"), (a.style.top = r - 100 + "px")),
-          a.classList.add("showup"));
-      }
+      this.classList.add("show");
+      var o = this.dataset.name,
+        a = document.querySelector('.house-text[data-num="' + o + '"]'),
+        n = e.clientX,
+        r = e.clientY,
+        s = a.offsetWidth,
+        c = a.offsetHeight;
+      a &&
+        (Touch
+          ? ((a.style.left = n - s / 2 + "px"),
+            (a.style.top = r - (c + 60) + "px"))
+          : ((a.style.left = n + 60 + "px"), (a.style.top = r - 100 + "px")),
+        a.classList.add("showup"));
+    }
+  }),
+    e.addEventListener("mouseleave", function (e) {
+      this.classList.remove("show");
+      for (var t = 0; t < houseText.length; t++)
+        houseText[t].classList.remove("showup"),
+          (houseText[t].style.left = "0"),
+          (houseText[t].style.top = "0");
     }),
-      e.addEventListener("mouseleave", function (e) {
-        this.classList.remove("show");
-        for (var t = 0; t < houseText.length; t++)
-          houseText[t].classList.remove("showup"),
-            (houseText[t].style.left = "0"),
-            (houseText[t].style.top = "0");
-      }),
-      e.addEventListener("click", function (e) {
-        if ((e.preventDefault(), e.stopPropagation(), !Touch)) {
-          var t = this.dataset.name;
-          document.querySelector(
-            ".house-text[data-num='" + t + "'] .go-link"
-          ) &&
-            document
-              .querySelector(".house-text[data-num='" + t + "'] .go-link")
-              .click();
-        }
-        return !1;
-      });
-  });
+    e.addEventListener("click", function (e) {
+      if ((e.preventDefault(), e.stopPropagation(), !Touch)) {
+        var t = this.dataset.name;
+        document.querySelector(".house-text[data-num='" + t + "'] .go-link") &&
+          document
+            .querySelector(".house-text[data-num='" + t + "'] .go-link")
+            .click();
+      }
+      return !1;
+    });
+});
 var customSelect = function () {
   var e = document.querySelector(".select-header"),
     t = document.querySelector(".select-box"),

@@ -6353,14 +6353,12 @@ var timer,
   Footer = document.querySelector(".footer"),
   Bottom = document.querySelector(".bottom"),
   Copyright = document.querySelector(".copyright"),
-  Social = document.querySelector(".social"),
   navClick = document.querySelector(".nav-click"),
   Navigation = document.querySelector(".navigation"),
   overlayMenu = document.querySelector(".overlay-menu"),
   Nav = document.querySelector(".nav"),
   naItems = document.querySelectorAll(".nav-item"),
   rightHeader = document.querySelector(".right-header"),
-  leftHeader = document.querySelector(".left-header"),
   boxSlider = document.querySelector(".box-slider"),
   groupCentral = document.querySelectorAll(".group-central"),
   boxNav = document.querySelector(".box-nav"),
@@ -6389,7 +6387,6 @@ var timer,
   bgHouse = document.querySelector(".bg-house"),
   closeApart = document.querySelector(".close-apartment"),
   Hotline = document.querySelector(".hotline"),
-  Subscrible = document.querySelector(".subscribe"),
   formRegister = document.querySelector("#formRegister"),
   formContact = document.querySelector("#formContact"),
   wrapView = document.querySelectorAll(".wrap-view-more, .wrap-go-news"),
@@ -6631,11 +6628,7 @@ if (
   ("error-page" != IDPage && "thankyou-page" != IDPage) ||
     (titlePage.classList.add("display-none"), boxNav.classList.add("not-need")),
   "news-page" == IDPage &&
-    (Header.classList.add("light"), rightHeader.classList.add("white")),
-  "progress-page" == IDPage &&
-    (rightHeader.classList.add("white"),
-    leftHeader.classList.add("color-normal-dark")),
-  document.querySelector(".home-facilities"))
+    (Header.classList.add("light"), rightHeader.classList.add("white")))
 ) {
   var Faci,
     FaciPage = document.querySelector(".home-facilities .content-main"),
@@ -7191,11 +7184,7 @@ const onPlay = function () {
           e.target.classList.contains("text-gradient") &&
             (e.isIntersecting
               ? document.querySelector(".tagline .play-gsap").click()
-              : document.querySelector(".tagline .pause-gsap").click()),
-          e.target.classList.contains("wrap-form") &&
-            (e.isIntersecting
-              ? Subscrible.classList.add("current")
-              : Subscrible.classList.remove("current"));
+              : document.querySelector(".tagline .pause-gsap").click())
       });
     });
   a &&
@@ -8987,7 +8976,6 @@ if (scrollStay) {
         gsap.set(".option-scroll .srcoll-list", { scrollTop: 0 }),
       HTML.classList.contains("zoom-object") &&
         HTML.classList.remove("zoom-object"),
-      Subscrible && Subscrible.classList.remove("current"),
       (ytVideo || boxVideo) && StopPlay();
     var e = document.querySelectorAll(
       ".hover-block, .note-block, .hover-svg, .block-svg, .house-text, .block-area"
@@ -9066,7 +9054,6 @@ if (scrollStay) {
     groupCentral[groupIndex].classList.contains("home-partner", "show-text") && ("home-page" == IDPage ? rightHeader.classList.add("white") : titlePage.classList.add("color-highlight")),
     groupCentral[groupIndex].classList.contains("register", "show-text") ? (boxNav.classList.remove("show"),
     rightHeader.classList.add("white"),
-    Subscrible && Subscrible.classList.add("current"),
     titlePage && titlePage.classList.add("hide")) : (boxNav.classList.contains("not-need") || boxNav.classList.add("show"),
     titlePage && titlePage.classList.remove("hide")),
     onPlay(),
