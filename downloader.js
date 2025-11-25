@@ -4,7 +4,7 @@ import path from "path";
 import axios from "axios";
 
 // URL cần tải
-const targetUrl = "https://thegio.vn/";
+const targetUrl = "https://ttavio.vn/";
 const saveFolder = `./site/${new Date().getTime()}`;
 
 // Tạo folder lưu
